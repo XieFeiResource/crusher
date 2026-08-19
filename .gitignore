@@ -1,0 +1,22 @@
+# 虚拟环境（这个必须忽略）
+venv/
+env/
+.venv/
+
+# Python 编译产生的缓存
+__pycache__/
+*.py[cod]
+*.so
+
+# IDE 自身配置文件（忽略后换电脑也不会带乱你的路径）
+.idea/
+.vscode/
+*.iml
+
+# 环境变量和敏感信息
+.env
+*.pem
+
+# 日志和数据库文件
+*.log
+*.sqlite3

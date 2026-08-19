@@ -1,0 +1,31 @@
+{
+  "case_id": "structured_deposit_usdjpy_001",
+  "case_name": "结构性存款-美元兑日元汇率挂钩",
+  "description": "测试汇率挂钩型结构性存款的翻译、参数提取、流程图生成和风险识别",
+  "input": {
+    "raw_text": "本产品为结构性存款，期限90天，挂钩美元兑日元汇率。\n\n观察期：2026年8月20日至2026年11月18日（共90天，65个交易日）。\n\n收益规则：若观察期内任意一个交易日，美元兑日元汇率始终位于【145.00-155.00】区间内（含边界），则到期年化收益率为4.80%；若观察期内任一交易日汇率突破上述区间，则到期年化收益率为1.20%。",
+    "style": "通俗版"
+  },
+  "expected_translation": {
+    "plain_language_contains": ["结构性存款", "汇率", "区间", "收益"],
+    "product_type": "结构性存款",
+    "term": "90天",
+    "expected_return_contains": ["4.80", "1.20"],
+    "risk_level_contains": ["R2", "中低", "中"],
+    "early_redemption": "原文未说明",
+    "principal_protection_contains": ["保本", "本金"],
+    "key_logic_contains": ["汇率", "区间", "145", "155"]
+  },
+  "expected_flowchart": {
+    "must_contain": ["flowchart TD", "145", "155", "4.80", "1.20"],
+    "must_not_contain": ["?"],
+    "must_have_green_style": true,
+    "must_have_red_style": true
+  },
+  "expected_risks": {
+    "min_count": 2,
+    "snippets_must_be_in_original": true,
+    "risk_levels": ["高", "中", "低"]
+  },
+  "notes": "此条款的核心风险点：1) 汇率突破区间仅获1.20%低收益；2) 未提及本金是否保障及提前赎回规则；3) 观察期长达65个交易日，汇率波动突破区间概率不低。"
+}
