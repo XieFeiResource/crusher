@@ -13,6 +13,7 @@ from .translator import TermTranslator
 from .flowchart import FlowchartGenerator
 from .risk_analyzer import RiskAnalyzer
 
+
 logger = logging.getLogger("term_crusher.pipeline")
 
 ProgressCallback = Callable[[str, float], None]
